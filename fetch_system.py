@@ -1,33 +1,30 @@
-'''import psutil
-from datetime import datetime
+import psutil
+import json
 
+class allinfo:
+    cpufreq = 0
+    cpuusage = 0
+    
 
-boot_time_timestamp = psutil.boot_time()
-bt = datetime.fromtimestamp(boot_time_timestamp)
-cpufreq = psutil.cpu_freq()
-svmem = psutil.virtual_memory()
-swap = psutil.swap_memory()
-disk_io = psutil.disk_io_counters()
-net_io = psutil.net_io_counters()
+    def __init__(self) -> None:
+        self.fetchallinfo()
 
-#
+    def fetchallinfo(self) -> dict:
+        #cpu
+        try:
+            self.cpufreq = psutil.cpu_freq().current     #MHz
+            self.cpuusage = psutil.cpu_percent()          #%
+            print('g')
+        except Exception as E:
+            print(E)
 
-import subprocess
- 
-# traverse the info
-Id = subprocess.check_output(['systeminfo']).decode('utf-8').split('\n')
-new = []
- 
-# arrange the string into clear info
-for item in Id:
-    new.append(str(item.split("\r")[:-1]))
-for i in new:
-    print(i[2:-2])'''
+    def group_values(self) -> dict:
+        class_var = vars(allinfo)
+        stat = {}
+        for key, value in class_var.items():
+            stat[key] = value
 
-import wmi
+        return stat
 
-hwmon = wmi.WMI(namespace="D:\Download\LibreHardwareMonitor-net472")
-sensors = hwmon.Sensor(SensorType="Control")
-
-for s in sensors:
-	print(s)
+if __name__ == '__main__':
+    print(allinfo.group_values(allinfo()))
