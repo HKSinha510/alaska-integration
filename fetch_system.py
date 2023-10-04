@@ -4,27 +4,26 @@ import json
 class allinfo:
     cpufreq = 0
     cpuusage = 0
-    
 
     def __init__(self) -> None:
-        self.fetchallinfo()
+        self.fetchcpu()
 
-    def fetchallinfo(self) -> dict:
-        #cpu
+    def fetchcpu(self) -> dict:
         try:
-            self.cpufreq = psutil.cpu_freq().current     #MHz
-            self.cpuusage = psutil.cpu_percent()          #%
-            print('g')
+            self.cpufreq = psutil.cpu_freq().current     #MHz       cpu frequency
+            self.cpuusage = psutil.cpu_percent()          #%        cpu current ussage percentage 
         except Exception as E:
             print(E)
 
     def group_values(self) -> dict:
-        class_var = vars(allinfo)
+        class_vars = vars(self)
         stat = {}
-        for key, value in class_var.items():
-            stat[key] = value
+
+        for variable, value in class_vars.items():
+            stat[variable] = value
 
         return stat
 
 if __name__ == '__main__':
-    print(allinfo.group_values(allinfo()))
+    inst = allinfo()
+    print(inst.group_values())
