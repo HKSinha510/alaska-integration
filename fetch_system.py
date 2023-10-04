@@ -8,12 +8,18 @@ class allinfo:
     def __init__(self) -> None:
         self.fetchcpu()
 
-    def fetchcpu(self) -> dict:
+    def fetchcpu(self) -> None:
         try:
             self.cpufreq = psutil.cpu_freq().current     #MHz       cpu frequency
             self.cpuusage = psutil.cpu_percent()          #%        cpu current ussage percentage 
-        except Exception as E:
-            print(E)
+        except Exception as e:
+            print(e)
+
+    def fetchmemory(self) -> None:
+        try:
+
+        except Exception as e:
+            print(e)
 
     def group_values(self) -> dict:
         class_vars = vars(self)
