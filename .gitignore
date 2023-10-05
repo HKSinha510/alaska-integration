@@ -1,5 +1,10 @@
 #user defines
 test.py
+test2.py
+*.dll
+*.sys
+runn.bat
+*.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -1,4 +1,5 @@
-import psutil
+import psutil, json
+from datetime import datetime
 
 def get_size(bytes, suffix="B"):
     factor = 1024
@@ -11,10 +12,13 @@ class allinfo:
     cpufreq = 0
     cpuusage = 0
     memper = 0
+    stat = {}
+    json_stat = {}
 
     def __init__(self) -> None:
         self.fetchcpu()
         self.fetchmemory()
+        self.group_values()
 
     def fetchcpu(self) -> None:
         try:
@@ -40,17 +44,24 @@ class allinfo:
 
     def group_values(self) -> dict:
         class_vars = vars(self)
-        stat = {}
 
         for variable, value in class_vars.items():
-            stat[variable] = value
+            if variable not in ['stat', 'json_stat']:
+                self.stat[variable] = value
 
-        return stat
+        self.stat['time'] = str(datetime.now())
     
-    def discord_procedure(self):
-        #store data from new.json to old.json, add new data in new.json, send same copy to frontend and to discord
-        pass
+    def store_files(self):
+        fn = open('newdata.json', 'w+')
+        fo = open('olddata.json', 'w+')
+
+        json.dump(self.json_stat, fn)
+
+        #fn.write(str(self.stat))
+
 
 if __name__ == '__main__':
     inst = allinfo()
     print(inst.group_values())
+    print(inst.json_stat)
+    inst.store_files()

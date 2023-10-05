@@ -5,7 +5,7 @@ what i want:
     current disk read       https://thepythoncode.com/article/get-hardware-system-information-python
     current battery         https://thepythoncode.com/article/get-hardware-system-information-python
     if possible: 
-    current temps       maybe       https://thepythoncode.com/article/get-hardware-system-information-python
+    current temps       maybe       https://github.com/BennyCarbajal/PyTherm
     current sheepit points
 
 
