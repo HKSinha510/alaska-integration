@@ -8,6 +8,9 @@ what i want:
     current temps       maybe       https://github.com/BennyCarbajal/PyTherm
     current sheepit points
 
+recording the shit i'm doing to unchange it when fuck up:
+https://www.lifewire.com/how-to-port-forward-4163829
+
 
 uname = platform.uname()
 boot_time_timestamp = psutil.boot_time()
