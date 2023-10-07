@@ -3,8 +3,13 @@ integrating alaska with my pc using rest api to see system info(like temp, cpu s
 
 
 # todo
-* [ ] make it work          working on main
+* [x] make it work          working on main
 * [ ] add log files(for error)
 * [ ] make it modular
 * [ ] add multiuser
 * [ ] gui
+
+
+# compiling
+nutika is used
+lets see it works or not
