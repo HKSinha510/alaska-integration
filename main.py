@@ -2,6 +2,7 @@ import uvicorn
 from fastapi import FastAPI
 from fetch_system import allinfo
 
+
 app = FastAPI()
 
 @app.get("/")
