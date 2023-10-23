@@ -5,6 +5,8 @@ test2.py
 *.sys
 runn.bat
 *.json
+*.exe
+build/
 
 
 #nuitka
@@ -13,8 +15,7 @@ main.dist/
 main.onefile-build/
 nuitka-crash-report.xml
 
-*.exe
-build/
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

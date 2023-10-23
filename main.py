@@ -1,7 +1,7 @@
 import uvicorn
 from fastapi import FastAPI
 from fetch_system import allinfo
-import logging
+#import logging
 
 app = FastAPI()
 
